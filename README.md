@@ -6,7 +6,7 @@
 # Quokka - The quantum API Gateway
 
 Quokka is a API Gateway that manages the communication between a client and multiple services for quantum computing.
-It enables circuit generation, translation, execution and error mitigation.
+It enables [circuit generation](https://github.com/UST-QuAntiL/quantum-circuit-generator), translation, execution and error mitigation.
 Further, custom service can easily be integrated and exposed.
 
 ## Structure
