@@ -1,0 +1,42 @@
+server:
+  port: 6474
+
+spring:
+  cloud:
+    gateway:
+      filter:
+        dedupe-response-header:
+          enabled: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders:
+              - Content-Type
+            allowedMethods:
+              - HEAD
+              - GET
+              - PUT
+              - POST
+              - OPTIONS
+              - DELETE
+org:
+  quantil:
+    gateway:
+      error-mitigation-service:
+        uri: http://localhost:5071
+      objective-function-service:
+        uri: http://localhost:5072
+      quantum-circuit-generator:
+        uri: http://localhost:5073
+      optimization-service:
+        uri: http://localhost:5074
+      circuit-execution-service:
+        uri: http://localhost:5075
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    org.quantil.gateway: DEBUG

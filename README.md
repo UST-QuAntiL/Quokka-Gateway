@@ -1,44 +1,53 @@
-﻿![Tests passed](https://github.com/UST-QuAntiL/Quokka/actions/workflows/test.yml/badge.svg)
+# Quokka Gateway
+
+![Tests passed](https://github.com/UST-QuAntiL/Quokka/actions/workflows/test.yml/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![codecov](https://codecov.io/gh/UST-QuAntiL/Quokka/branch/master/graph/badge.svg?token=n37q3cv8Gu)](https://codecov.io/gh/UST-QuAntiL/Quokka)
 
-# Quokka - The quantum API Gateway
+This project provides a Gateway to connect to all Quokka services via a single API.
+Hence, it unites services for quantum circuit generation, circuit execution, error mitigation, measurement result evaluation, and parameter optimization in a single API endpoint.
+It is built upon the [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) to intercept and forward requests coming from outside the network.
 
-Quokka is a API Gateway that manages the communication between a client and multiple services for quantum computing.
-It enables [circuit generation](https://github.com/UST-QuAntiL/quantum-circuit-generator), translation, execution and error mitigation.
-Further, custom service can easily be integrated and exposed.
+## Run with Docker
+The easiest way to get start is using a pre-built Docker image:
 
-## Structure
-In the following the structure of the Quokka API is explained.
-The full API specification can be found at  ``http://127.0.0.1:5000/api/swagger-ui`` when Quokka is running.
+``docker run -p 6474:6474 planqk/quokka``
 
-### /circuit-generation
-Contains encoding and algorithm circuit fragements.
 
-### /mitigation
-Contains error mitigiation capabilities.
+Alternatively, the Docker container can be built manually:
+1. Clone the repository using ``git clone https://github.com/UST-QuAntiL/Quokka.git``
+2. Navigate to the repository  ``cd Quokka``
+3. Build the Docker container: ``docker build -t quokka:0.1 .``
+4. Run the Docker container: ``docker run -p 6474:6474 quokka:0.1``
+
+The Gateway can be accessed via: [http://127.0.0.1:6474](http://127.0.0.1:6474).
+
+
+
+## Usage
+
+This gateway routes requests following the schema ``/quokka/*`` to the corresponding services configured in ``application.yaml`` or the Dockerfile.
+The Gateway's default port is `6474`.
+The request schemas of the individual services have to be used. They can be found in their respective documentations.
+
+### Gateways
+
+Currently, the following gateways are implemented:
+* quokka/error-mitigation --> [Error Mitigation Service](https://github.com/UST-QuAntiL/error-mitigation-service) at ``hostname:5071\``
+* quokka/objective-function --> [Objective Function Service](https://github.com/UST-QuAntiL/objective-function-service) at ``hostname:5072\``
+* quokka/circuit-generator --> [Circuit Generator](https://github.com/UST-QuAntiL/quantum-circuit-generator) at ``hostname:5073\``
+* quokka/optimization --> [TODO](https://github.com/UST-QuAntiL/error-mitigation-service) at ``hostname:5074\``
+* quokka/circuit-executor --> [TODO](https://github.com/UST-QuAntiL/error-mitigation-service) at ``hostname:5075\``
+
 
 ## Developer Guide
 
-### Setup (exemplary for ubuntu 18.04): 
-* ``git clone https://github.com/UST-QuAntiL/quokka.git`` 
-* ``cd quokka``
-* ``sudo -H pip install virtualenv`` (if you don't have virtualenv installed)
-* ``virtualenv venv`` (create virtualenv named 'venv')
-* ``source venv/bin/activate`` (enter virtualenv; in Windows systems activate might be in ``venv/Scripts``)
-* ``pip install -r requirements.txt`` (install application requirements)
+## Building the application locally
+The Gateway can be built using Maven.
 
-### Execution:
-* Run with: ``flask run``
-* Test with: ``flask test``
-* Coverage with: ``coverage run --branch --include 'api/*' -m unittest discover; coverage report``
+1. Run `mvn package -DskipTests` inside the root folder using [OpenJdk 17](https://openjdk.java.net/projects/jdk/17/) or above.
+2. Once finished, the generated .jar file can be found in the `target` folder.
+3. To execute it navigate to the `target` folder and run: `java -jar gateway-0.0.1-SNAPSHOT.jar`
 
-#### Codestyle: 
-``black . `` OR ``black FILE|DIRECTORY``
-
-#### Update requirements with: 
-``pip freeze>requirements.txt``
 
 ### Disclaimer of Warranty
 Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.

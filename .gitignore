@@ -1,19 +1,32 @@
-#pycache folder
-__pycache__/
-*.pyc
+HELP.md
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-#temp + coverage folder & files
-/tmp/*
-/coverage.xml
-/htmlcov/*
-/.coverage
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-#python env
-/venv/*
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-#Intellij
-/.idea/*
-
-
-
+### VS Code ###
+.vscode/
