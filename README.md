@@ -41,7 +41,7 @@ Currently, the following gateways are implemented:
 
 ## Developer Guide
 
-## Building the application locally
+### Building the application locally
 The Gateway can be built using Maven.
 
 1. Run `mvn package -DskipTests` inside the root folder using [OpenJdk 17](https://openjdk.java.net/projects/jdk/17/) or above.
