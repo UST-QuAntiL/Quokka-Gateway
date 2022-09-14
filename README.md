@@ -1,6 +1,5 @@
 # Quokka Gateway
 
-![Tests passed](https://github.com/UST-QuAntiL/Quokka/actions/workflows/build.yml/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This project provides a Gateway to connect to all Quokka services via a single API.
