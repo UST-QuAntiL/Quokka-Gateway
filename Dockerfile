@@ -14,7 +14,7 @@ ENV LOGGING_LEVEL INFO
 
 ENV ERROR_MITIGATION_SERVICE_URI http://host.docker.internal:5071
 ENV OBJECTIVE_FUNCTION_SERVICE_URI http://host.docker.internal:5072
-ENV QUANTUM_CIRCUIT_GENERATOR_URI http://host.docker.internal:5073
+ENV QUANTUM_CIRCUIT_GENERATION_URI http://host.docker.internal:5073
 ENV OPTIMIZATION_SERVICE_URI http://host.docker.internal:5074
 ENV CIRCUIT_EXECUTION_SERVICE_URI http://host.docker.internal:5075
 

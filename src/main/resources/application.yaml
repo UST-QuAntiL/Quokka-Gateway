@@ -29,7 +29,7 @@ org:
         uri: http://localhost:5071
       objective-function-service:
         uri: http://localhost:5072
-      quantum-circuit-generator:
+      quantum-circuit-generation:
         uri: http://localhost:5073
       optimization-service:
         uri: http://localhost:5074

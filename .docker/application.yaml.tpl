@@ -8,8 +8,8 @@ org:
         uri: {{ .Env.ERROR_MITIGATION_SERVICE_URI }}
       objective-function-service:
         uri: {{ .Env.OBJECTIVE_FUNCTION_SERVICE_URI }}
-      quantum-circuit-generator:
-        uri: {{ .Env.QUANTUM_CIRCUIT_GENERATOR_URI }}
+      quantum-circuit-generation:
+        uri: {{ .Env.QUANTUM_CIRCUIT_GENERATION_URI }}
       optimization-service:
         uri: {{ .Env.OPTIMIZATION_SERVICE_URI }}
       circuit-execution-service:

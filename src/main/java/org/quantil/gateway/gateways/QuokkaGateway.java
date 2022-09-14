@@ -19,15 +19,12 @@ public class QuokkaGateway {
     private String errorMitigationServiceUri;
     @Value("${org.quantil.gateway.objective-function-service.uri}")
     private String objectiveFunctionServiceUri;
-    @Value("${org.quantil.gateway.quantum-circuit-generator.uri}")
-    private String quantumCircuitGeneratorUri;
+    @Value("${org.quantil.gateway.quantum-circuit-generation.uri}")
+    private String quantumCircuitGenerationUri;
     @Value("${org.quantil.gateway.optimization-service.uri}")
     private String optimizationServiceUri;
     @Value("${org.quantil.gateway.circuit-execution-service.uri}")
     private String circuitExecutionUri;
-
-    @Value("${server.port}")
-    private String gatewayUri;
 
     @Bean
     public RouteLocator quokkaLocator(RouteLocatorBuilder builder) {
@@ -45,12 +42,12 @@ public class QuokkaGateway {
                 .method(HttpMethod.POST)
                 .filters(f->f.rewritePath("/quokka/objective-function/(?<segment>.*)","/${segment}"))
                 .uri(objectiveFunctionServiceUri))
-            .route("circuit-generator", route -> route
-                .path(CONTEXT_PATH + "/circuit-generator/**")
+            .route("circuit-generation", route -> route
+                .path(CONTEXT_PATH + "/circuit-generation/**")
                 .and()
                 .method(HttpMethod.POST)
-                .filters(f->f.rewritePath("/quokka/circuit-generator/(?<segment>.*)","/${segment}"))
-                .uri(quantumCircuitGeneratorUri))
+                .filters(f->f.rewritePath("/quokka/circuit-generation/(?<segment>.*)","/${segment}"))
+                .uri(quantumCircuitGenerationUri))
             .route("optimization", route -> route
                 .path(CONTEXT_PATH + "/optimization/**")
                 .and()
