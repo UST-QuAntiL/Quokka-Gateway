@@ -24,7 +24,7 @@ The Gateway can be accessed via: [http://127.0.0.1:6474](http://127.0.0.1:6474).
 
 This gateway routes requests following the schema ``/quokka/*`` to the corresponding services configured in ``application.yaml``, the [Dockerfile](./Dockerfile), or using the corresponding environment variables (see [here](https://github.com/UST-QuAntiL/Quokka-Gateway/blob/master/.docker/application.yaml.tpl)).
 The Gateway's default port is `6474`.
-The request schemas of the individual services have to be used. They can be found in their respective documentations.
+The request schemas of the individual services have to be used. They can be found in their respective documentation.
 
 ### Gateways
 
