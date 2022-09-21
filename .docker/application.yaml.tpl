@@ -6,8 +6,8 @@ org:
     gateway:
       error-mitigation-service:
         uri: {{ .Env.ERROR_MITIGATION_SERVICE_URI }}
-      objective-function-service:
-        uri: {{ .Env.OBJECTIVE_FUNCTION_SERVICE_URI }}
+      objective-evaluation-service:
+        uri: {{ .Env.OBJECTIVE_EVALUATION_SERVICE_URI }}
       quantum-circuit-generation:
         uri: {{ .Env.QUANTUM_CIRCUIT_GENERATION_URI }}
       optimization-service:

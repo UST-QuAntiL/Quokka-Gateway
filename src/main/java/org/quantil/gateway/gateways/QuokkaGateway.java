@@ -17,8 +17,8 @@ public class QuokkaGateway {
 
     @Value("${org.quantil.gateway.error-mitigation-service.uri}")
     private String errorMitigationServiceUri;
-    @Value("${org.quantil.gateway.objective-function-service.uri}")
-    private String objectiveFunctionServiceUri;
+    @Value("${org.quantil.gateway.objective-evaluation-service.uri}")
+    private String objectiveEvaluationServiceUri;
     @Value("${org.quantil.gateway.quantum-circuit-generation.uri}")
     private String quantumCircuitGenerationUri;
     @Value("${org.quantil.gateway.optimization-service.uri}")
@@ -36,12 +36,12 @@ public class QuokkaGateway {
                 .filters(f->f.rewritePath("/quokka/error-mitigation/(?<segment>.*)","/${segment}"))
                 .uri(errorMitigationServiceUri)
             )
-            .route("objective-function", route -> route
-                .path(CONTEXT_PATH + "/objective-function/**")
+            .route("objective-evaluation", route -> route
+                .path(CONTEXT_PATH + "/objective-evaluation/**")
                 .and()
                 .method(HttpMethod.POST)
-                .filters(f->f.rewritePath("/quokka/objective-function/(?<segment>.*)","/${segment}"))
-                .uri(objectiveFunctionServiceUri))
+                .filters(f->f.rewritePath("/quokka/objective-evaluation/(?<segment>.*)","/${segment}"))
+                .uri(objectiveEvaluationServiceUri))
             .route("circuit-generation", route -> route
                 .path(CONTEXT_PATH + "/circuit-generation/**")
                 .and()

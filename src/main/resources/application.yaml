@@ -27,7 +27,7 @@ org:
     gateway:
       error-mitigation-service:
         uri: http://localhost:5071
-      objective-function-service:
+      objective-evaluation-service:
         uri: http://localhost:5072
       quantum-circuit-generation:
         uri: http://localhost:5073

@@ -32,7 +32,7 @@ The request schemas of the individual services have to be used. They can be foun
 
 Currently, the following gateways are implemented:
 * quokka/error-mitigation --> [Error Mitigation Service](https://github.com/UST-QuAntiL/error-mitigation-service) at ``hostname:5071\``
-* quokka/objective-function --> [Objective Function Service](https://github.com/UST-QuAntiL/objective-function-service) at ``hostname:5072\``
+* quokka/objective-evaluation --> [Objective Function Service](https://github.com/UST-QuAntiL/objective-evaluation-service) at ``hostname:5072\``
 * quokka/circuit-generation --> [Quantum Circuit Generator](https://github.com/UST-QuAntiL/quantum-circuit-generator) at ``hostname:5073\``
 * quokka/optimization --> [Optimization Service](https://github.com/UST-QuAntiL/Quokka/tree/main/services/optimization-service) at ``hostname:5074\``
 * quokka/circuit-execution --> [Circuit Execution Service](https://github.com/UST-QuAntiL/Quokka/tree/main/services/execution-service) at ``hostname:5075\``
