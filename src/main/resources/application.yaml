@@ -35,6 +35,10 @@ org:
         uri: http://localhost:5074
       circuit-execution-service:
         uri: http://localhost:5075
+      circuit-cutting-service:
+        uri: http://localhost:5076
+      warm-starting-service:
+        uri: http://localhost:5077
 
 logging:
   level:

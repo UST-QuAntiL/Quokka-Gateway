@@ -14,6 +14,10 @@ org:
         uri: {{ .Env.OPTIMIZATION_SERVICE_URI }}
       circuit-execution-service:
         uri: {{ .Env.CIRCUIT_EXECUTION_SERVICE_URI }}
+      circuit-execution-service:
+        uri: {{ .Env.CIRCUIT_CUTTING_SERVICE_URI }}
+      circuit-execution-service:
+        uri: {{ .Env.WARM_STARTING_SERVICE_URI }}
 
 logging:
   level:

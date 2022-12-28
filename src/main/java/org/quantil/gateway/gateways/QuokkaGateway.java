@@ -25,6 +25,10 @@ public class QuokkaGateway {
     private String optimizationServiceUri;
     @Value("${org.quantil.gateway.circuit-execution-service.uri}")
     private String circuitExecutionUri;
+    @Value("${org.quantil.gateway.circuit-cutting-service.uri}")
+    private String circuitCuttingUri;
+    @Value("${org.quantil.gateway.warm-starting-service.uri}")
+    private String warmStartingUri;
 
     @Bean
     public RouteLocator quokkaLocator(RouteLocatorBuilder builder) {
@@ -59,8 +63,19 @@ public class QuokkaGateway {
                 .and()
                 .method(HttpMethod.POST)
                 .filters(f->f.rewritePath("/quokka/circuit-execution/(?<segment>.*)","/${segment}"))
-                .uri(circuitExecutionUri)
-            )
+                .uri(circuitExecutionUri))
+            .route("circuit-cutting", route -> route
+                .path(CONTEXT_PATH + "/circuit-cutting/**")
+                .and()
+                .method(HttpMethod.POST)
+                .filters(f->f.rewritePath("/quokka/circuit-cutting/(?<segment>.*)","/${segment}"))
+                .uri(circuitCuttingUri))
+            .route("warm-starting", route -> route
+                .path(CONTEXT_PATH + "/warm-starting/**")
+                .and()
+                .method(HttpMethod.POST)
+                .filters(f->f.rewritePath("/quokka/warm-starting/(?<segment>.*)","/${segment}"))
+                .uri(warmStartingUri))
             .build();
     }
 }

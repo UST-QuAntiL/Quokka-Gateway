@@ -17,6 +17,8 @@ ENV OBJECTIVE_EVALUATION_SERVICE_URI http://host.docker.internal:5072
 ENV QUANTUM_CIRCUIT_GENERATION_URI http://host.docker.internal:5073
 ENV OPTIMIZATION_SERVICE_URI http://host.docker.internal:5074
 ENV CIRCUIT_EXECUTION_SERVICE_URI http://host.docker.internal:5075
+ENV CIRCUIT_CUTTING_SERVICE_URI http://host.docker.internal:5076
+ENV WARM_STARTING_SERVICE_URI http://host.docker.internal:5077
 
 
 COPY --from=builder /tmp/gateway/target/gateway-0.0.1-SNAPSHOT.jar /var/gateway/gateway.jar

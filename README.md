@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This project provides a Gateway to connect to all [Quokka](https://github.com/UST-QuAntiL/Quokka) services via a single API.
-Hence, it unites services for quantum circuit generation, circuit execution, error mitigation, measurement result evaluation, and parameter optimization in a single API endpoint.
+Hence, it unites services for quantum circuit generation, circuit execution, error mitigation, measurement result evaluation, parameter optimization, circuit cutting, and warm-starting in a single API endpoint.
 It is built upon the [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) to intercept and forward requests from outside the network.
 
 ## Run with Docker
@@ -35,6 +35,8 @@ Currently, the following gateways are implemented:
 * quokka/circuit-generation --> [Quantum Circuit Generator](https://github.com/UST-QuAntiL/quantum-circuit-generator) at ``hostname:5073\``
 * quokka/optimization --> [Optimization Service](https://github.com/UST-QuAntiL/Quokka/tree/main/services/optimization-service) at ``hostname:5074\``
 * quokka/circuit-execution --> [Circuit Execution Service](https://github.com/UST-QuAntiL/Quokka/tree/main/services/execution-service) at ``hostname:5075\``
+* quokka/circuit-cutting --> [Circuit Cutting Service](https://github.com/UST-QuAntiL/circuit-cutting-service) at ``hostname:5076\``
+* quokka/warm-starting --> [Warm-Starting Service](https://github.com/UST-QuAntiL/warm-starting-service) at ``hostname:5077\``
 
 ## Developer Guide
 
